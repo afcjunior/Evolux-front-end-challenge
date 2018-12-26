@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
+const dynamicNumberGenerator = require('./src/utils/dynamicNumberGenerator.js');
 
 const config = {
   entry: './src/index.js',
@@ -41,7 +42,13 @@ const config = {
     ]
   },
   devServer: {
-    contentBase: './dist'
+    contentBase: './dist',
+    //restart WDS if you change this
+    before: function(app) {
+      app.get('/numbers', function(request, response) {
+        response.json(dynamicNumberGenerator(request.query.page, request.query.perPage));
+      });
+    }
   }
 }
 
