@@ -1,27 +1,38 @@
-//restart WDS if you change this
+// receives the current page, and how many items to show per page.
+// calculates total ammount of pages
+// dynamically generates the phone numbers that should display at that given page
+// ps: //restart webpack-dev-server if you change this
 
-const dynamicNumberGenerator = function(page, perPage) {
+const dynamicNumberGenerator = function(page = 1, perPage = 100) {
 
-  //not dynamic yet :D
-  const numbers = {
-    "meta": {
-      "page": page,
-      "perPage": perPage,
-      "totalPages": Math.ceil(1000/perPage)
-    },
-    "data": [
-      {
-        "number": 555000000,
-        "cost": 1
-      },
-      {
-        "number": 555000001,
-        "cost": 1.01
-      },
-
-    ]
+  const meta = {
+    "page": page,
+    "perPage": perPage,
+    "totalPages": Math.ceil(1000/perPage)
   }
-  return numbers;
+
+  let data = []
+
+  //calculating phone numbers
+  let suffix = ((page - 1) * perPage)
+  let phoneNumber = 555000000 + suffix
+  const phoneLimit = 555000999
+
+  for (let i = 0; i <= perPage; i++){
+    if(phoneNumber <= phoneLimit){
+      let cost = (1 + ((phoneNumber % 100)/100)).toFixed(2)
+      data.push({
+        "number": phoneNumber,
+        "cost": cost
+      })
+      phoneNumber++
+    }
+  }
+
+  return {
+    meta,
+    data
+  }
 }
 
 module.exports = dynamicNumberGenerator;

@@ -5,15 +5,18 @@
   "main": "index.js",
   "scripts": {
     "clean": "rm dist/bundle.js",
-    "build-dev": "webpack -d --mode development",
-    "build-prod": "webpack -p --mode production",
-    "start": "webpack-dev-server --open --hot --mode development"
+    "build": "webpack -p --mode production",
+    "start": "webpack-dev-server --open --hot --mode development",
+    "firebase-init": "firebase login && firebase init",
+    "deploy": "npm run build && firebase deploy",
+    "firebase-use-add": "firebase use --add"
   },
   "keywords": [],
   "author": "Adalberto Camacho <afcjunior95@gmail.com> (https://github.com/afcjunior)",
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.2.2",
+    "@babel/plugin-proposal-class-properties": "^7.2.3",
     "@babel/preset-env": "^7.2.3",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.4",
@@ -29,9 +32,9 @@
     "prop-types": "^15.6.2",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
-    "react-hot-loader": "^4.6.3",
     "react-redux": "^6.0.0",
     "redux": "^4.0.1",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "whatwg-fetch": "^3.0.0"
   }
 }

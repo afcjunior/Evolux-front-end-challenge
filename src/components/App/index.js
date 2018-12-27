@@ -1,25 +1,27 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { hot } from 'react-hot-loader/root'
-// import { BrowserRouter as Router, Route} from 'react-router-dom'
+//import { hot } from 'react-hot-loader/root'
 // import Component from '../Component'
- import { connect } from 'react-redux'
+import { connect } from 'react-redux'
+import { handleFetchInitialData } from '../../actions/numbers'
 
-const page = 1, perPage = 3
+const page = 1, perPage = 100
 const url = `/numbers?page=${page}&perPage=${perPage}`
+
 class App extends React.Component {
+
   componentDidMount(){
-    console.log('---- APP componentdidMount')
-    fetch(url)
-      .then(response => {
-
-        console.log('does this work? ', response.json())
-      })
-
+    console.log('---- APP -- componentdidMount')
+    this.props.dispatch(handleFetchInitialData())
   }
 
+
   render() {
-    return <div>Hello lol</div>;
+    return (
+      <div>
+        hey there.
+      </div>
+    )
   }
 }
 
@@ -28,4 +30,5 @@ function mapStateToProps (){
    smt: null
   }
 }
-export default connect(mapStateToProps)(hot(App))
+export default connect(mapStateToProps)(App)
+//export default connect(mapStateToProps)(hot(App))
