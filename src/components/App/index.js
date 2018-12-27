@@ -1,34 +1,48 @@
-import React from "react";
+import React, { Component, Fragment } from 'react'
 import ReactDOM from "react-dom";
-//import { hot } from 'react-hot-loader/root'
 // import Component from '../Component'
 import { connect } from 'react-redux'
-import { handleFetchInitialData } from '../../actions/numbers'
-
-const page = 1, perPage = 100
-const url = `/numbers?page=${page}&perPage=${perPage}`
-
-class App extends React.Component {
+import { handleFetchInitialData } from '../../actions/shared'
+import LoadingBar from 'react-redux-loading'
+class App extends Component {
 
   componentDidMount(){
-    console.log('---- APP -- componentdidMount')
     this.props.dispatch(handleFetchInitialData())
   }
 
-
   render() {
     return (
-      <div>
-        hey there.
-      </div>
+      <Fragment>
+        <LoadingBar/>
+        {this.props.loading === true
+          ? null
+          : <div className="container">
+              <ul>
+                {this.props.numbers.map((num) => (
+                  <li key={num.number}>
+                    {num.number}
+                  </li>
+                ))}
+              </ul>
+            </div>
+        }
+      </Fragment>
+
     )
   }
 }
 
-function mapStateToProps (){
+function mapStateToProps ({ meta, numbers }){
+  let dirtyArray = []
+  for(let key in numbers){
+    dirtyArray.push(numbers[key]);
+  }
+
   return{
-   smt: null
+    meta,
+    numbers: dirtyArray,
+    loading: numbers[0] === undefined
   }
 }
 export default connect(mapStateToProps)(App)
-//export default connect(mapStateToProps)(hot(App))
+

@@ -1,5 +1,5 @@
 //import actions
-import { GET_NUMBERS, GET_META } from '../actions/numbers'
+import { GET_NUMBERS } from '../actions/numbers'
 
 export default function numbers (state = {}, action){
   switch(action.type){
@@ -8,12 +8,6 @@ export default function numbers (state = {}, action){
         ...state,
         ...action.numbers
       }
-
-    case GET_META :
-    return {
-      ...state,
-      ...action.meta
-    }
 
     default :
       return state
