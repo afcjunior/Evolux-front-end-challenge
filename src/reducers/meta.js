@@ -1,5 +1,5 @@
 //import actions
-import { GET_META } from '../actions/meta'
+import { GET_META, SET_META } from '../actions/meta'
 
 export default function meta (state = {}, action){
   switch(action.type){

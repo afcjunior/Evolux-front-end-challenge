@@ -1,0 +1,56 @@
+@media only screen and (min-device-width: 1px) and (max-device-width: 425px) {
+  p{
+    display: flex;
+    margin: 0;
+  }
+
+  .pagination{
+    display: flex;
+    align-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background-color: white;
+    height: 10vh;
+    font-size: 3em;
+    min-width: 405px;
+
+  }
+
+}
+
+@media only screen and (min-device-width: 426px) and (max-device-width: 4000px) {
+
+  p{
+    display: flex;
+    margin: 0;
+  }
+
+  .pagination{
+    display: flex;
+    align-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    width: inherit;
+    background-color: white;
+    height: 7vh;
+    font-size: 1.5em;
+    min-width: 405px;
+
+
+  }
+
+}
+
+
+
+
+
+
+
+
+

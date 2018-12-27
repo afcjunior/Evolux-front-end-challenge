@@ -1,0 +1,83 @@
+@font-face {
+  font-family: 'B612 Mono', monospace;
+  src: local('B612 Mono'),  url(https://fonts.googleapis.com/css?family=B612+Mono);
+}
+
+html {
+  font-family: 'B612 Mono', monospace;
+  background-color: white;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+}
+
+
+@media only screen and (min-device-width: 1px) and (max-device-width: 425px) {
+    .container{
+    display: flex;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
+    width: 100vw;
+  }
+
+  .per-page{
+    display: flex;
+    align-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background-color: white;
+    height: 10vh;
+    font-size: 3em;
+    min-width: 405px;
+
+
+  }
+
+}
+
+@media only screen and (min-device-width: 426px) and (max-device-width: 4000px) {
+
+  .container{
+    display: flex;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
+    align-self: center;
+    width: 50vw;
+    height: 90vh;
+  }
+
+  .per-page{
+    display: flex;
+    align-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    width: inherit;
+    background-color: white;
+    height: 7vh;
+    font-size: 1.5em;
+    line-height: 1.5em;
+    min-width: 405px;
+
+  }
+}
+
+
+
+
+
+
+
+
+

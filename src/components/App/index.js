@@ -4,27 +4,41 @@ import ReactDOM from "react-dom";
 import { connect } from 'react-redux'
 import { handleFetchInitialData } from '../../actions/shared'
 import LoadingBar from 'react-redux-loading'
+import NumbersList from '../NumbersList'
+import Pagination from '../Pagination'
+import PerPage from '../PerPage'
+
+import './index.css'
+
 class App extends Component {
 
-  componentDidMount(){
+  componentWillMount(){
     this.props.dispatch(handleFetchInitialData())
   }
 
+  handleSubmit = (event) => {
+    event.preventDefault()
+    let pagey = {
+      page: 1,
+      perPage:20
+    }
+    this.props.dispatch(handleUpdateData(pagey))
+  }
+
   render() {
+    // let {page, perPage, totalPages } = this.props.meta
+
     return (
       <Fragment>
         <LoadingBar/>
         {this.props.loading === true
           ? null
           : <div className="container">
-              <ul>
-                {this.props.numbers.map((num) => (
-                  <li key={num.number}>
-                    {num.number}
-                  </li>
-                ))}
-              </ul>
+              <PerPage/>
+              <NumbersList numbers={this.props.numbers} />
+              <Pagination/>
             </div>
+
         }
       </Fragment>
 

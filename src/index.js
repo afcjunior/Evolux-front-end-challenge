@@ -12,4 +12,4 @@ const mountNode = document.getElementById("app");
 ReactDOM.render(
 <Provider store={store}>
   <App />
-</Provider>,mountNode);
+</Provider>, mountNode);
