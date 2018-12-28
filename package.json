@@ -6,10 +6,7 @@
   "scripts": {
     "clean": "rm dist/bundle.js",
     "build": "webpack -p --mode production",
-    "start": "webpack-dev-server --open --hot --mode development",
-    "firebase-init": "firebase login && firebase init",
-    "deploy": "npm run build && firebase deploy",
-    "firebase-use-add": "firebase use --add"
+    "start": "webpack-dev-server --open --hot --mode development"
   },
   "keywords": [],
   "author": "Adalberto Camacho <afcjunior95@gmail.com> (https://github.com/afcjunior)",
@@ -28,12 +25,10 @@
     "webpack-dev-server": "^3.1.14"
   },
   "dependencies": {
-    "firebase-tools": "^6.2.2",
     "prop-types": "^15.6.2",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-redux": "^6.0.0",
-    "react-redux-loading": "^1.0.1",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
     "whatwg-fetch": "^3.0.0"

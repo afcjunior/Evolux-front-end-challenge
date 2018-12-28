@@ -4,5 +4,3 @@ The app mocks an API built to specification using webpack-dev-server's 'before'.
 
 It then consumes from that API in a react-redux web application, listing all numbers and paginating them.
 
-You can see it online here:
-
