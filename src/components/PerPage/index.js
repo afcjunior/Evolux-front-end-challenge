@@ -6,7 +6,7 @@ export default function PerPage ({ changePerPage, currentPerPage }) {
     return (
       <div className="perPage">
       <ul className="perPage-list">
-        <li style={{marginRight: "20px"}}>Per Page: </li>
+        <li className="perPage-list-header">Per Page: </li>
         {
           threshold.map(thresholds => (
             <li
@@ -30,14 +30,3 @@ export default function PerPage ({ changePerPage, currentPerPage }) {
     </div>
     )
   }
-
-//   <div className="per-page">
-//   <div className="items">
-//     <p> Per page: </p>
-//     <div className="btns">
-//       <input type="submit" onClick={perPageA} value={100} />
-//       <input type="submit" onClick={perPageB} value={500} />
-//       <input type="submit" onClick={perPageC} value={"ALL"} />
-//     </div>
-//   </div>
-// </div>

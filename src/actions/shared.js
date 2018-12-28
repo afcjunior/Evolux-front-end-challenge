@@ -1,19 +1,19 @@
-import { getNumbers } from './numbers'
-import { setMeta } from './meta'
-import { showLoading, hideLoading } from 'react-redux-loading'
+export const GET_DATA = 'GET_DATA'
+
+export function getData(metadata){
+  return{
+    type: GET_DATA,
+    metadata
+  }
+}
 
 export function fetchData({page = 1, perPage = 100}){
   return (dispatch) => {
-    dispatch(showLoading())
     let url = `/numbers?page=${page}&perPage=${perPage}`
     return fetch(url)
       .then(response => response.json())
       .then(obj => {
-        const { meta, data } = obj
-        dispatch(getNumbers(data))
-        dispatch(setMeta(meta))
-        dispatch(hideLoading())
-
+        dispatch(getData(obj))
       })
   }
 }

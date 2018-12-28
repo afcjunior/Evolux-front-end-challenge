@@ -13,15 +13,27 @@
     min-width: 405px;
   }
 
-  .number-list {
+  .pagination-list {
     list-style: none;
-    display: flex;
+    display: inline-flex;
+    flex-direction: row;
   }
 
- .number-list-item {
-    margin-right: 0.3em;
+  .current{
+    font-weight: 900;
+    text-decoration: underline;
+    cursor: default !important;
+  }
+
+ .pagination-list-item {
+    margin-right: 1em;
     user-select: none;
+    font-size: 1.2em;
     cursor: pointer;
+  }
+
+  .pagination-list-item:hover{
+    text-decoration: underline;
   }
 
 }

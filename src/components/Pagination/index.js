@@ -1,10 +1,6 @@
 import React from 'react'
 import './index.css'
 
-
-
-
-
 export default function Pagination ({ totalPages, page, changePages, perPage }) {
 
   const pageNumbers = []

@@ -1,11 +1,11 @@
 //import actions
-import { GET_NUMBERS } from '../actions/numbers'
+import { GET_DATA } from '../actions/shared'
 
 export default function numbers (state = {}, action){
   switch(action.type){
 
-    case GET_NUMBERS :
-      return action.numbers.map(num => ({
+    case GET_DATA :
+      return action.metadata.data.map(num => ({
         number: num.number,
         cost: num.cost
       }))

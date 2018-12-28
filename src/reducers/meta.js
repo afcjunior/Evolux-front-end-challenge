@@ -1,15 +1,15 @@
 //import actions
-import { SET_META, GET_META} from '../actions/meta'
+import { GET_DATA } from '../actions/shared'
 
 export default function meta (state = {}, action){
   switch(action.type){
 
-    case SET_META :
+    case GET_DATA :
       return {
         ...state,
-          page: action.meta.page,
-          perPage: action.meta.perPage,
-          totalPages: action.meta.totalPages
+        page: action.metadata.meta.page,
+        perPage: action.metadata.meta.perPage,
+        totalPages: action.metadata.meta.totalPages
       }
 
     default :
