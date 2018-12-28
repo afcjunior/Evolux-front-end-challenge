@@ -1,11 +1,12 @@
 import React from 'react'
 import './index.css'
 
-export default function Pagination ({ numbers }) {
 
+export default function Pagination (props) {
+  const { page, perPage, totalPages } = props.pages
     return (
       <div className="pagination">
-        <p>1 2 3 4 5</p>
+        <p>{totalPages}</p>
       </div>
     )
   }

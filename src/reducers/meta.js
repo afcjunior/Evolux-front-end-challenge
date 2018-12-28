@@ -7,7 +7,10 @@ export default function meta (state = {}, action){
     case GET_META :
       return {
         ...state,
-        ...action.meta
+          page: action.meta.page,
+          perPage: action.meta.perPage,
+          totalPages: action.meta.totalPages
+
       }
 
     default :

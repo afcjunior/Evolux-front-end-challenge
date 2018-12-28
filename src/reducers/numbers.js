@@ -5,10 +5,10 @@ export default function numbers (state = {}, action){
   switch(action.type){
 
     case GET_NUMBERS :
-      return {
-        ...state,
-        ...action.numbers
-      }
+      return action.numbers.map(num => ({
+        number: num.number,
+        cost: num.cost
+      }))
 
     default :
       return state

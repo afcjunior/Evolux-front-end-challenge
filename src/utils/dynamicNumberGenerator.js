@@ -3,7 +3,7 @@
 // dynamically generates the phone numbers that should display at that given page
 // ps: //restart webpack-dev-server if you change this
 
-const dynamicNumberGenerator = function(page = 1, perPage = 100) {
+const dynamicNumberGenerator = function(page, perPage) {
 
   const meta = {
     "page": page,

@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react'
 import ReactDOM from "react-dom";
 // import Component from '../Component'
 import { connect } from 'react-redux'
-import { handleFetchInitialData } from '../../actions/shared'
+import { fetchData } from '../../actions/shared'
 import LoadingBar from 'react-redux-loading'
 import NumbersList from '../NumbersList'
 import Pagination from '../Pagination'
@@ -12,21 +12,30 @@ import './index.css'
 
 class App extends Component {
 
-  componentWillMount(){
-    this.props.dispatch(handleFetchInitialData())
-  }
-
-  handleSubmit = (event) => {
-    event.preventDefault()
-    let pagey = {
+  componentDidMount(){
+    const meta = {
       page: 1,
-      perPage:20
+      perPage: 100
     }
-    this.props.dispatch(handleUpdateData(pagey))
+    this.props.dispatch(fetchData(meta))
   }
 
+  //pretty sure there are better ways but its where I am atm
+  perPageA = () => {
+    this.props.dispatch(fetchData({ page: 3, perPage: 100}))
+  }
+  perPageB = () => {
+    this.props.dispatch(fetchData({ perPage: 500}))
+  }
+  perPageC = () => {
+    this.props.dispatch(fetchData({ perPage: 1000}))
+  }
+  nextPage = () => {
+    let page = 5
+    this.props.dispatch(fetchData({ page: page}))
+
+  }
   render() {
-    // let {page, perPage, totalPages } = this.props.meta
 
     return (
       <Fragment>
@@ -34,9 +43,10 @@ class App extends Component {
         {this.props.loading === true
           ? null
           : <div className="container">
-              <PerPage/>
+              <button onClick={this.nextPage}>-----------</button>
+              <PerPage perPageA={this.perPageA} perPageB={this.perPageB} perPageC={this.perPageC}/>
               <NumbersList numbers={this.props.numbers} />
-              <Pagination/>
+              <Pagination pages={this.props.meta}/>
             </div>
 
         }
