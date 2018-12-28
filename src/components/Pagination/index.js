@@ -5,7 +5,7 @@ import './index.css'
 
 
 
-export default function Pagination ({ totalPages, page }) {
+export default function Pagination ({ totalPages, page, changePages, perPage }) {
 
   const pageNumbers = []
   for (let i = 1; i <= totalPages; i++) {
@@ -23,6 +23,10 @@ export default function Pagination ({ totalPages, page }) {
                 : "pagination-list-item" }
               key={num}
               id={num}
+              value={perPage}
+              onClick={num == page
+                ? null
+                : changePages}
             >
               {num}
             </li>

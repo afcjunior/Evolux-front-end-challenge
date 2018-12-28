@@ -1,9 +1,6 @@
 import React, { Component, Fragment } from 'react'
-import ReactDOM from "react-dom";
-// import Component from '../Component'
 import { connect } from 'react-redux'
 import { fetchData } from '../../actions/shared'
-import { changePerPage } from '../../actions/meta'
 import LoadingBar from 'react-redux-loading'
 import NumbersList from '../NumbersList'
 import Pagination from '../Pagination'
@@ -12,11 +9,9 @@ import PerPage from '../PerPage'
 import './index.css'
 
 // TO DO
-// - MAKE PAGINATION WORK
-// - DISABLE ALL BUTTONS WHEN THEY'RE ACTIVE, SO YOU CANT SPAM CLICK.
-// - TRY TO FIND A BETTER WAY TO USE REDUX, especially pagination... theres gotta be a smarter way
+// - REVIEW CSS STANDARDS AND THAT IT WORKS IN MOBILE
 // - REVIEW ALL FILES SO THEY MAKE SENSE
-// - SEND AND PRAY
+
 class App extends Component {
 
   componentDidMount(){
@@ -27,24 +22,24 @@ class App extends Component {
     this.props.dispatch(fetchData(meta))
   }
 
-  //pretty sure there are better ways but its where I am atm
-  perPageA = () => {
-    this.props.dispatch(fetchData({ perPage: 100}))
+  changePerPage = (event) =>{
+    this.props.dispatch(fetchData({
+      page: 1,
+      perPage: event.target.id
+    }))
   }
-  perPageB = () => {
-    this.props.dispatch(fetchData({ perPage: 500}))
-  }
-  perPageC = () => {
-    this.props.dispatch(fetchData({ perPage: 1000}))
+
+  changePages = (event) => {
+    console.log('event ====== ', event)
+    this.props.dispatch(fetchData({
+      page: event.target.id,
+      perPage: event.target.value
+    }))
   }
 
   render() {
     const { page, perPage, totalPages } = this.props.meta
     const { numbers } = this.props
-
-    const indexOfLastNumber = page * perPage
-    const indexOfFirstNumber = indexOfLastNumber - perPage
-    const currentNumbers = numbers.slice(indexOfFirstNumber, indexOfLastNumber)
 
     return (
       <Fragment>
@@ -52,10 +47,9 @@ class App extends Component {
         {this.props.loading === true
           ? null
           : <div className="container">
-              <PerPage currentPerPage={perPage} perPageA={this.perPageA} perPageB={this.perPageB} perPageC={this.perPageC}/>
-              <NumbersList numbers={currentNumbers} />
-              <Pagination totalPages={totalPages} page={page} />
-              {console.log(page)}
+              <PerPage currentPerPage={perPage} changePerPage={this.changePerPage} />
+              <NumbersList numbers={numbers} />
+              <Pagination totalPages={totalPages} page={page} perPage={perPage} changePages={this.changePages} />
             </div>
 
         }

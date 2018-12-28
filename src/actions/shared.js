@@ -1,5 +1,5 @@
 import { getNumbers } from './numbers'
-import { getMeta } from './meta'
+import { setMeta } from './meta'
 import { showLoading, hideLoading } from 'react-redux-loading'
 
 export function fetchData({page = 1, perPage = 100}){
@@ -11,9 +11,9 @@ export function fetchData({page = 1, perPage = 100}){
       .then(obj => {
         const { meta, data } = obj
         dispatch(getNumbers(data))
-        dispatch(getMeta(meta))
+        dispatch(setMeta(meta))
         dispatch(hideLoading())
-      })
 
+      })
   }
 }

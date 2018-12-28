@@ -1,7 +1,7 @@
 // receives the current page, and how many items to show per page.
 // calculates total ammount of pages
-// dynamically generates the phone numbers that should display at that given page
-// ps: //restart webpack-dev-server if you change this
+// returns dynamically generated phone numbers that should display on that page depending on the meta specifications.
+// ps: restart webpack-dev-server if you change this
 
 const dynamicNumberGenerator = function(page, perPage) {
 

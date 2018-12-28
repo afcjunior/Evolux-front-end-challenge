@@ -18,16 +18,20 @@ export default function NumbersList ({ numbers }) {
           <div className="header-cell"> Number </div>
           <div className="header-cell"> Price </div>
         </div>
-        <ul className="table-list">
+        {
+          numbers.length > -1
+          ? (<ul className="table-list">
             {
-              numbers.map(({ number, cost }) => (
-                <li key={number} className="table-list-item">
-                  <div className="cell"> {formatPhoneNumber(number)} </div>
-                  <div className="cell"> ${cost} </div>
-                </li>
-              ))
-            }
-        </ul>
+                numbers.map(({ number, cost }) => (
+                  <li key={number} className="table-list-item">
+                    <div className="cell"> {formatPhoneNumber(number)} </div>
+                    <div className="cell"> ${cost} </div>
+                  </li>
+                ))
+              }
+          </ul>)
+          : <p>No numbers available at this time. </p>
+        }
       </div>
     )
   }
