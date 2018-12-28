@@ -1,9 +1,4 @@
 @media only screen and (min-device-width: 1px) and (max-device-width: 425px) {
-  p{
-    display: flex;
-    margin: 0;
-  }
-
   .pagination{
     display: flex;
     align-content: center;
@@ -16,17 +11,22 @@
     height: 10vh;
     font-size: 3em;
     min-width: 405px;
+  }
 
+  .number-list {
+    list-style: none;
+    display: flex;
+  }
+
+ .number-list-item {
+    margin-right: 0.3em;
+    user-select: none;
+    cursor: pointer;
   }
 
 }
 
 @media only screen and (min-device-width: 426px) and (max-device-width: 4000px) {
-
-  p{
-    display: flex;
-    margin: 0;
-  }
 
   .pagination{
     display: flex;
@@ -36,13 +36,34 @@
     margin: 0;
     padding: 0;
     width: inherit;
-    background-color: white;
-    height: 7vh;
     font-size: 1.5em;
+    font-weight: 100;
     min-width: 405px;
-
-
   }
+
+
+  .pagination-list {
+    list-style: none;
+    display: inline-flex;
+    flex-direction: row;
+  }
+
+  .current{
+    font-weight: 900;
+    text-decoration: underline;
+    cursor: default !important;
+  }
+
+ .pagination-list-item {
+    margin-right: 1em;
+    user-select: none;
+    cursor: pointer;
+  }
+
+  .pagination-list-item:hover{
+    text-decoration: underline;
+  }
+
 
 }
 
