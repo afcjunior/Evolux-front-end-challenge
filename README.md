@@ -9,7 +9,7 @@ CSS is responsive.
 
 To run:
 
-git clone https://github.com/afcjunior/afcjunior-evolux-front-end-challenge.git
-cd afcjunior-evolux-front-end-challenge
-npm install
-npm start
+- git clone https://github.com/afcjunior/afcjunior-evolux-front-end-challenge.git
+- cd afcjunior-evolux-front-end-challenge
+- npm install
+- npm start
