@@ -1,4 +1,6 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+
 import './index.css'
 
 export default function Pagination ({ totalPages, page, changePages, perPage }) {
@@ -31,4 +33,11 @@ export default function Pagination ({ totalPages, page, changePages, perPage }) 
       </ul>
     </div>
   )
+}
+
+Pagination.propTypes = {
+  totalPages: PropTypes.number.isRequired,
+  changePages: PropTypes.func.isRequired,
+  page: PropTypes.string.isRequired,
+  perPage: PropTypes.string.isRequired,
 }

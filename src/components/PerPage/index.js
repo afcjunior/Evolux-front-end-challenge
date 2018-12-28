@@ -1,4 +1,6 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+
 import './index.css'
 
 export default function PerPage ({ changePerPage, currentPerPage }) {
@@ -29,4 +31,9 @@ export default function PerPage ({ changePerPage, currentPerPage }) {
       </ul>
     </div>
     )
+  }
+
+  PerPage.propTypes = {
+    changePerPage: PropTypes.func.isRequired,
+    currentPerPage: PropTypes.string.isRequired,
   }

@@ -1,19 +1,25 @@
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import { fetchData } from '../../actions/shared'
+import PropTypes from 'prop-types'
 
 import NumbersList from '../NumbersList'
 import Pagination from '../Pagination'
 import PerPage from '../PerPage'
 
 import './index.css'
-
-// TO DO
-// - REVIEW CSS STANDARDS AND THAT IT WORKS IN MOBILE
-// - APPLY PROPTYPES
-// - REVIEW ALL FILES SO THEY MAKE SENSE
-
 class App extends Component {
+
+  static propTypes = {
+    meta: PropTypes.object.isRequired,
+    dispatch: PropTypes.func.isRequired,
+    //numbers is initiall an object till its populated.
+    numbers: PropTypes.oneOfType([
+      PropTypes.object,
+      PropTypes.array
+    ]).isRequired,
+
+  }
 
   componentDidMount(){
     this.props.dispatch(fetchData({
